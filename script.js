@@ -1,4 +1,4 @@
-const APIKEY = ""; // Please insert your API key here 
+const APIKEY = "&token=btsi2mv48v6tbbfivfn0"; // Please insert your API key here 
 
 const stockName = document.querySelector("#name");
 const price = document.querySelector("#price");
@@ -18,10 +18,8 @@ const showPrice = (name) => {
         let low = stock[4][1].toFixed(2);
         let open = stock[5][1].toFixed(2);
         let difference = current - open;
-        
-        if (current.
 
-        if(difference < 0){
+        if (difference < 0) {
             price.innerHTML = `Current Price: $${current} (<span> - $${Math.abs(difference)} </span>) 
                           <br><br> Open: $${open} 
                           <br><br> Today's high: $${high} <br> Today's low: $${low}`;
@@ -50,7 +48,7 @@ const showProfile = (name) => {
         let img = profile[5][1];
         frame.src = img;
         frame.alt = profile[7][1];
-    }).catch(e => console.log("There was an error"));
+    }).catch (e => console.log("There was an error"));
 }
 
 const light = () => {
