@@ -67,7 +67,7 @@ const dark = () => {
 }
 
 
-showPrice("AMD");
+showPrice("AAPL");
 
 const choose = document.getElementById("choose");
 
