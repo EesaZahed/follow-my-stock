@@ -1,0 +1,76 @@
+const stockName = document.querySelector("#name");
+const price = document.querySelector("#price");
+
+const frame = document.querySelector("img");
+
+const showPrice = (name) => {
+    fetch("https://finnhub.io/api/v1/quote?symbol="+name+"&token=btsi2mv48v6tbbfivfn0")
+    .then((response) => {
+        if(response.ok){ return response; }
+        throw Error(response.statusText);
+    }).then(response => response.json())
+    .then(data => {
+        stockName.innerHTML = name;
+        let stock = Object.entries(data);
+        let current = stock[0][1];
+        let high = stock[1][1];
+        let low = stock[2][1];
+        let open = stock[3][1];
+        let difference = Math.round(100*(current - open))/100;
+
+        if(difference < 0){
+            price.innerHTML = `Current Price: $${current} (<span> - $${Math.abs(difference)} </span>) 
+                          <br><br> Open: $${open} 
+                          <br><br> Today's high: $${high} <br> Today's low: $${low}`;
+                          document.querySelector("span").style.color = "red";
+        } else {
+            price.innerHTML = `Current Price: $${current} (<span> + $${Math.abs(difference)} </span>) 
+                          <br><br> Open: $${open} 
+                          <br><br> Today's high: $${high} <br> Today's low: $${low}`;
+                          document.querySelector("span").style.color = "limegreen";     
+        }
+
+        showProfile(name);
+    }).catch(e => console.log("There was an error"));
+}
+
+const showProfile = (name) => {
+    fetch("https://finnhub.io/api/v1/stock/profile2?symbol="+name+"&token=btsi2mv48v6tbbfivfn0")
+    .then((response) => {
+        if(response.ok){ return response; }
+        throw Error(response.statusText);
+    }).then(response => response.json())
+    .then(data => {
+        let profile = Object.entries(data);
+        stockName.innerHTML = `${profile[7][1]}`;
+        document.querySelector("a").href = profile[11][1];
+        let img = profile[5][1];
+        frame.src = img;
+        frame.alt = profile[7][1];
+    }).catch(e => console.log("There was an error"));
+}
+
+const light = () => {
+    document.body.style.background = "white";
+    document.body.style.color = "#454545"; 
+    document.querySelector("a").style.color = "#454545";
+    document.querySelector("select").style.color = "#454545";
+    document.querySelector("select").style.background = "white";
+}
+
+const dark = () => {
+    document.body.style.background = "#454545";
+    document.body.style.color = "white"; 
+    document.querySelector("a").style.color = "white";
+    document.querySelector("select").style.color = "white";
+    document.querySelector("select").style.background = "#454545"; 
+}
+
+
+showPrice("AMD");
+
+const choose = document.getElementById("choose");
+
+choose.addEventListener("change", function(evt) {
+    showPrice(evt.target.value);
+});

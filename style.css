@@ -1,0 +1,44 @@
+body, select{
+    font-family: Comfortaa, Arial;
+    text-align: center;
+    margin: 0%;
+}
+main{
+    margin-left: 2.5%;
+    height: 60vh;
+}
+button{
+    font-family: Comfortaa, Arial;
+    background: white;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+select{
+    margin-left: 5%;
+    height: 25px;
+    width: 75px;
+    border-radius: 12.5px;
+}
+a{
+    color: black;
+}
+img{
+    height: 50px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+hr{
+    width: 50%;
+}
+footer{
+    height: 10vh;
+}
+
+#dark{
+    background: #454545;
+    color: white;
+}
