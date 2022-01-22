@@ -1,4 +1,4 @@
-const APIKEY = "&token=btsi2mv48v6tbbfivfn0"; // Please insert your API key here 
+const APIKEY = ""; // Please insert your API key here 
 
 const stockName = document.querySelector("#name");
 const price = document.querySelector("#price");
