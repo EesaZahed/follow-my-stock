@@ -4,7 +4,7 @@ const price = document.querySelector("#price");
 const frame = document.querySelector("img");
 
 const showPrice = (name) => {
-    fetch("https://finnhub.io/api/v1/quote?symbol="+name+"&token=btsi2mv48v6tbbfivfn0")
+    fetch("https://finnhub.io/api/v1/quote?symbol=" + name);
     .then((response) => {
         if(response.ok){ return response; }
         throw Error(response.statusText);
@@ -13,9 +13,9 @@ const showPrice = (name) => {
         stockName.innerHTML = name;
         let stock = Object.entries(data);
         let current = stock[0][1];
-        let high = stock[1][1];
-        let low = stock[2][1];
-        let open = stock[3][1];
+        let high = stock[3][1];
+        let low = stock[4][1];
+        let open = stock[5][1];
         let difference = Math.round(100*(current - open))/100;
 
         if(difference < 0){
