@@ -13,11 +13,13 @@ const showPrice = (name) => {
     .then(data => {
         stockName.innerHTML = name;
         let stock = Object.entries(data);
-        let current = stock[0][1];
-        let high = stock[3][1];
-        let low = stock[4][1];
-        let open = stock[5][1];
-        let difference = Math.round(100*(current - open))/100;
+        let current = stock[0][1].toFixed(2);
+        let high = stock[3][1].toFixed(2);
+        let low = stock[4][1].toFixed(2);
+        let open = stock[5][1].toFixed(2);
+        let difference = current - open;
+        
+        if (current.
 
         if(difference < 0){
             price.innerHTML = `Current Price: $${current} (<span> - $${Math.abs(difference)} </span>) 
