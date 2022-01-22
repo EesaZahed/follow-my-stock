@@ -4,7 +4,7 @@ const price = document.querySelector("#price");
 const frame = document.querySelector("img");
 
 const showPrice = (name) => {
-    fetch("https://finnhub.io/api/v1/quote?symbol=" + name);
+    fetch("https://finnhub.io/api/v1/quote?symbol=" + name)
     .then((response) => {
         if(response.ok){ return response; }
         throw Error(response.statusText);
