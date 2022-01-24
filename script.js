@@ -36,7 +36,7 @@ const showPrice = (name) => {
 }
 
 const showProfile = (name) => {
-    fetch("https://finnhub.io/api/v1/stock/profile2?symbol="+name+"&token=btsi2mv48v6tbbfivfn0")
+    fetch("https://finnhub.io/api/v1/stock/profile2?symbol=" + name + "APIKEY")
     .then((response) => {
         if(response.ok){ return response; }
         throw Error(response.statusText);
