@@ -17,7 +17,7 @@ const showPrice = (name) => {
         let high = stock[3][1].toFixed(2);
         let low = stock[4][1].toFixed(2);
         let open = stock[5][1].toFixed(2);
-        let difference = current - open;
+        let difference = (current - open).toFixed(2);
 
         if (difference < 0) {
             price.innerHTML = `Current Price: $${current} (<span> - $${Math.abs(difference)} </span>) 
