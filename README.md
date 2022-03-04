@@ -1,4 +1,4 @@
-# follow-my-stock
+# follow-my-stock (https://eesazahed.github.io/follow-my-stock/)
 Follow your stocks!
 
 To add your own stocks, edit index.html and add your stock symbols to the <select>
